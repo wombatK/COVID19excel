@@ -60,3 +60,5 @@ README COVID19excel
      below is is an area (growing) for pasting the daily solutions
      and then sorting them so that the growth of the asymptotes and
      other changes can be easily seen
+	 
+	 
