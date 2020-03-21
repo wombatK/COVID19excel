@@ -33,6 +33,9 @@ Sub SolveAll()
     ' needs the range of parameters used by solver to be in cells A2:E2
     ' needs CEngnotation function in workbook modules
     '
+    Dim ws As Worksheet
+    Set ws = Sheets("myData")
+    
     Dim arrMsg As Variant
     arrMsg = Range("SolverMsg")  'case sensitive
     
@@ -73,6 +76,32 @@ Sub SolveAll()
     For iC = 1 To UBound(vCtry) - 1
         
         If iOption = 0 Or iOption = iC Then
+            'copy last run parameters to His table
+            Dim rngRunTable As Range
+            Set rngRunTable = Range("myData!RunTableTL")
+            Dim rngRunRow As Range
+            Dim iRunCols As Integer
+            iRunCols = Range("myData!RunTableTR").Column - Range("myData!RunTableTL").Column + 1
+            
+            Set rngRunRow = Range(rngRunTable.Offset(iC, 0), rngRunTable.Offset(iC, iRunCols))
+            
+            Dim rngRunTime As Range
+            Set rngRunTime = Range(rngRunTable.Offset(iC, 1), rngRunTable.Offset(iC, 1))
+            Dim rngHisRow As Range
+            Dim rngHisRows As Range
+            Dim iHisRowLast As Integer
+            
+            Set rngHisRow = Range("myData!HisTableTL")
+            iHisRowLast = ws.Columns(rngHisRow.Column).Find(What:="*", SearchDirection:=xlPrevious, SearchOrder:=xlByRows).Row + 1
+            Set rngHisRow = rngHisRow.Offset(iHisRowLast - rngHisRow.Row, 0)
+            rngRunRow.Copy
+            rngHisRow.PasteSpecial xlPasteValues
+            rngRunTime.Value = Now()
+            
+            rngRunRow.Select
+            
+           'Stop
+            
             'update the pararmeters used in solver constraints...
             Dim rngR As Range
             For Each rngR In rngReplace
@@ -97,8 +126,7 @@ Sub SolveAll()
             Dim strMsg As String
             strMsg = "Solver for " & vCtry(iC) & " return " & vReturn & ": " & arrMsg(vReturn + 2, 2)
           
-            
-            
+        
             Dim sDeltaC As String
             sDeltaC = "myData!delta" & vCtry(iC)
             If Range(sDeltaC).Value <= 0 Then
@@ -125,7 +153,16 @@ Sub SolveAll()
             'SolverSolve
             ' SolverOk SetCell:="$I$12", MaxMinVal:=2, ValueOf:=0, ByChange:="$E$11:$G$11", _
             '    Engine:=2, EngineDesc:="Simplex LP"
+            
+              rngRunRow.Copy
+            rngHisRow.PasteSpecial xlPasteValues
+          '  rngRunTime.Value = Now()
+            
+            rngRunRow.Select
+            
             sLookFor = vCtry(iC) 'look for this on next iteration
+            
+            
             
         End If
     Next iC
