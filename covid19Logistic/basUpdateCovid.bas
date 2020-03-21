@@ -107,6 +107,8 @@ Sub GetJHConfirmedData()
         strFileContent = Input(LOF(iFile), iFile)
         Close #iFile
         
+        If vbYes = MsgBox("Last file was " & sFMax & ", do you want to check for update", vbYesNo, "JH Data Fetch") Then
+        
         
         Set oHTTP = CreateObject("MSXML2.ServerXMLHTTP")
         
@@ -118,6 +120,12 @@ Sub GetJHConfirmedData()
         sResponse = DateConvert(oHTTP.responsetext)
         Debug.Print Len(strFileContent), Len(sResponse)
         
+            
+            sOutFName = sOutPath & Format(Now(), "yyyymmdd_hhmm") & "_raw_" & sPath
+            Close 1
+            Open sOutFName For Output As #1
+            Print #1, sResponse
+            Close 1
         
         If Len(strFileContent) = Len(sResponse & vbCrLf) And (sResponse & vbCrLf = strFileContent) Then
             If vbYes <> MsgBox("No Changes since " & sFMax & vbCrLf & "Do you want to reprocess that", vbYesNo, "No Change In Download Data") Then
@@ -128,14 +136,18 @@ Sub GetJHConfirmedData()
             End If
         Else
             
-            sOutFName = sOutPath & Format(Now(), "yyyymmdd_hhmm") & "cc_" & sPath
+            sOutFName = sOutPath & Format(Now(), "yyyymmdd_hhmm") & "_" & sPath
             
             Open sOutFName For Output As #1
             Print #1, sResponse
         End If
-        strM = strM & sOutFName & " " & Len(sResponse) & " bytes" & vbCrLf
+          strM = strM & sOutFName & " " & Len(sResponse) & " bytes" & vbCrLf
         ' Debug.Print Len(sResponse) & " Characters written to " & sOutFName
         Close 1
+        Else
+         sResponse = strFileContent
+        End If
+      
         Exit For
         
     Next sPath
@@ -192,8 +204,29 @@ Sub GetJHConfirmedData()
     Dim vCountry As Variant
     Dim vCSumOut() As Variant
     
-    vCountry = Array("Australia", "Italy", "US", "China")
-    dtcountry1st = Array(#1/1/2020#, #1/1/2020#, #2/10/2020#, #1/1/2020#)  'constants must be in US format mm/dd/yyyy
+    Dim arrCtry As Variant
+    arrCtry = Range("Countries")
+    
+    Dim dtcountry1st() As Date
+    
+    ReDim vCountry(UBound(arrCtry, 1) - 4) '-1 as last entry is test, -1 for NSW gap, -1 to skip heading row, -1 for array origin
+    ReDim dtcountry1st(UBound(arrCtry, 1) - 4)
+    Dim vCountryTbl() As Variant 'the names used in table heading can be different
+    ReDim vCountryTbl(UBound(vCountry))
+    Dim iC1 As Integer
+    Dim iC2 As Integer
+    iC1 = 0 'skip the header line with column labels
+    For iC2 = 2 To UBound(arrCtry, 1) - 1
+     If Not IsEmpty(arrCtry(iC2, 2)) Then
+      vCountry(iC1) = arrCtry(iC2, 2)
+      vCountryTbl(iC1) = arrCtry(iC2, 1)
+      dtcountry1st(iC1) = CDate(arrCtry(iC2, 3))
+      iC1 = iC1 + 1
+     End If
+     
+    Next iC2
+    'vCountry = Array("Australia", "Italy", "US", "China", "Korea South", "United Kingdom")  'names used in JH data
+    'dtcountry1st = Array(#1/1/2020#, #1/1/2020#, #2/10/2020#, #1/1/2020#, #1/1/2020#, #1/1/2020#)   'constants must be in US format mm/dd/yyyy
     ReDim vCSumOut(lCols, UBound(vCountry) + 8) 'add 8 for separate australian states
     Dim sStates() As String 'the state labels expected in the data file
     sStates = Split("From Diamond Princess,Australian Capital Territory,New South Wales,Northern Territory,Queensland,South Australia,Tasmania,Victoria,Western Australia,", ",")
@@ -230,7 +263,11 @@ Sub GetJHConfirmedData()
                 sHeads(iCountry + iX) = sSeek
             Next iX
         Else
-            iColHeads(iCountry + nStates) = ws.Rows(rngHead.Row).Find(What:=Replace(vCountry(iCountry), "USA", "US"), LookAt:=xlPart).Column
+            Dim sFindCtry As String
+            sFindCtry = Replace(vCountry(iCountry), "USA", "US")
+            sFindCtry = vCountryTbl(iCountry)
+            
+            iColHeads(iCountry + nStates) = ws.Rows(rngHead.Row).Find(What:=sFindCtry, LookAt:=xlPart).Column
             sHeads(iCountry + nStates) = vCountry(iCountry)
             
         End If
@@ -246,7 +283,7 @@ Sub GetJHConfirmedData()
         
         If iCountry > 1 Then
             'USA have to zero it's data column.. same for china with state by state data
-            iSt = rngHead.Find(What:=vCountry(iCountry), LookAt:=xlWhole).Column
+            iSt = rngHead.Find(What:=vCountryTbl(iCountry), LookAt:=xlWhole).Column
             iR = iTableStartRow + 1
             Debug.Print Range(ws.Cells(iR, iSt), ws.Cells(iR + lCols - 4, iSt)).Address
             Range(ws.Cells(iR, iSt), ws.Cells(iR + lCols - 4, iSt)).Clear
@@ -270,7 +307,7 @@ Sub GetJHConfirmedData()
                         Stop 'something wrong
                     End If
                 Else
-                    iSt = rngHead.Find(What:=vCountry(iCountry), LookAt:=xlWhole).Column
+                    iSt = rngHead.Find(What:=vCountryTbl(iCountry), LookAt:=xlWhole).Column
                 End If
                 
                 
