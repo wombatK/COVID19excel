@@ -1,0 +1,192 @@
+
+Table: tblRuns, Sheet: [D:\data\health\COVID19\COVID19excel\covid19Logistic.xlsm]myData at Wed 01/04/2092
+87 CI	"Day 0"	=INDEX(tblPopulation[Day 0],MATCH([@Place],tblPopulation[Country],0),1)
+*87 CI	"=INDEX(tblPopulation[Day 0],MATCH([@Place],tblPopulation[State],0),1)"	12	Col CI<> Row 11
+*87 CI	"=INDEX(tblPopulation[Day 0],MATCH([@Place],tblPopulation[Country],0),1)"	13	Col CI<> Row 12
+*87 CI	"=INDEX(tblPopulation[Day 0],MATCH([@Place],tblPopulation[CtryAbbrev],0),1)"	15	Col CI<> Row 13
+*87 CI	"43895"	19	Col CI<> Row 15
+*87 CI	"=INDEX(tblPopulation[Day 0],MATCH($CG20,tblPopulation[Country],0),1)"	20	Col CI<> Row 19
+*87 CI	""	21	Col CI<> Row 20
+88 CJ	"Logistic Start2"	=INDEX(tblPopulation[Logistic Start2],MATCH($CG11,tblPopulation[Country],0),1)
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH($CG12,tblPopulation[CtryAbbrev],0),1)"	12	Col CJ<> Row 21
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH($CG13,tblPopulation[CtryAbbrev],0),1)"	13	Col CJ<> Row 12
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH($CG14,tblPopulation[Country],0),1)"	14	Col CJ<> Row 13
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH($CG15,tblPopulation[CtryAbbrev],0),1)"	15	Col CJ<> Row 14
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH($CG16,tblPopulation[CtryAbbrev],0),1)"	16	Col CJ<> Row 15
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH($CG17,tblPopulation[CtryAbbrev],0),1)"	17	Col CJ<> Row 16
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH($CG18,tblPopulation[CtryAbbrev],0),1)"	18	Col CJ<> Row 17
+*88 CJ	"43896"	19	Col CJ<> Row 18
+*88 CJ	"=INDEX(tblPopulation[Logistic Start2],MATCH([@Place],tblPopulation[Country],0),1)"	20	Col CJ<> Row 19
+*88 CJ	""	21	Col CJ<> Row 20
+93 CO	"Asymptote b/d"	=betaAu/deltaAu
+*93 CO	"=betaNSW/deltaNSW"	12	Col CO<> Row 21
+*93 CO	"=betaItaly/deltaItaly"	13	Col CO<> Row 12
+*93 CO	"=betaUS/deltaUS"	14	Col CO<> Row 13
+*93 CO	"=betaChina/deltaChina"	15	Col CO<> Row 14
+*93 CO	"=betaSKorea/deltaSKorea"	16	Col CO<> Row 15
+*93 CO	"=betaUK/deltaUK"	17	Col CO<> Row 16
+*93 CO	"=betaSingapore/deltaSingapore"	18	Col CO<> Row 17
+*93 CO	"=betaTests/deltaTests"	19	Col CO<> Row 18
+*93 CO	"=betaGeneric/deltaGeneric"	20	Col CO<> Row 19
+*93 CO	""	21	Col CO<> Row 20
+94 CP	"Mean Sq Err"	=SQRT(SUM(tblData[AU Sq Err])/COUNT(tblData[AU Sq Err]))
+*94 CP	"=SQRT(SUM(tblData[NSW Sq Err])/COUNT(tblData[NSW Sq Err]))"	12	Col CP<> Row 21
+*94 CP	"=SQRT(SUM(tblData[Italy Sq Err])/COUNT(tblData[Italy Sq Err]))"	13	Col CP<> Row 12
+*94 CP	"=SQRT(SUM(tblData[US Sq Err])/COUNT(tblData[US Sq Err]))"	14	Col CP<> Row 13
+*94 CP	"=SQRT(SUM(tblData[China Sq Err])/COUNT(tblData[China Sq Err]))"	15	Col CP<> Row 14
+*94 CP	"=SQRT(SUM(tblData[Skorea Sq Err])/COUNT(tblData[Skorea Sq Err]))"	16	Col CP<> Row 15
+*94 CP	"=SQRT(SUM(tblData[UK Sq Err])/COUNT(tblData[UK Sq Err]))"	17	Col CP<> Row 16
+*94 CP	"=SQRT(SUM(tblData[Singapore Sq Err])/COUNT(tblData[Singapore Sq Err]))"	18	Col CP<> Row 17
+*94 CP	"=SQRT(SUM(tblData[NSW Test Sq Err])/COUNT(tblData[NSW Test Sq Err]))"	19	Col CP<> Row 18
+*94 CP	"=SQRT(SUM(tblData[Generic Sq Err])/COUNT(tblData[Generic Sq Err]))"	20	Col CP<> Row 19
+*94 CP	""	21	Col CP<> Row 20
+95 CQ	"(beta/Po)-delta"	=(betaAu/PoAu)-deltaAu
+*95 CQ	"=(betaNSW/PoNSW)-deltaNSW"	12	Col CQ<> Row 21
+*95 CQ	"=(betaItaly/PoItaly)-deltaItaly"	13	Col CQ<> Row 12
+*95 CQ	"=(betaUS/PoUS)-deltaUS"	14	Col CQ<> Row 13
+*95 CQ	"=(betaChina/PoChina)-deltaChina"	15	Col CQ<> Row 14
+*95 CQ	"=(betaSKorea/PoSKorea)-deltaSKorea"	16	Col CQ<> Row 15
+*95 CQ	"=([b]/[Po])-[d]"	17	Col CQ<> Row 16
+*95 CQ	"=(betaTests/PoTests)-deltaTests"	19	Col CQ<> Row 17
+*95 CQ	"=([b]/[Po])-[d]"	20	Col CQ<> Row 19
+*95 CQ	""	21	Col CQ<> Row 20
+96 CR	"delta*1000"	=[d]*1000
+*96 CR	""	21	Col CR<> Row 21
+97 CS	"AtDate"	=MAX(IF(ISNUMBER(tblData[Au]),tblData[Date]))
+*97 CS	"=MAX(IF(ISNUMBER(tblData[NSW]),tblData[Date]))"	12	Col CS<> Row 21
+*97 CS	"=MAX(IF(ISNUMBER(tblData[Italy]),tblData[Date]))"	13	Col CS<> Row 12
+*97 CS	"=MAX(IF(ISNUMBER(tblData[US]),tblData[Date]))"	14	Col CS<> Row 13
+*97 CS	"=MAX(IF(ISNUMBER(tblData[Italy]),tblData[Date]))"	15	Col CS<> Row 14
+*97 CS	"=MAX(IF(ISNUMBER(tblData[SKorea]),tblData[Date]))"	16	Col CS<> Row 15
+*97 CS	"=MAX(IF(ISNUMBER(tblData[UK]),tblData[Date]))"	17	Col CS<> Row 16
+*97 CS	"=MAX(IF(ISNUMBER(tblData[Singapore]),tblData[Date]))"	18	Col CS<> Row 17
+*97 CS	"=MAX(IF(ISNUMBER(tblData[Tests]),tblData[Date]))"	19	Col CS<> Row 18
+*97 CS	"=MAX(IF(ISNUMBER(tblData[Generic]),tblData[Date]))"	20	Col CS<> Row 19
+*97 CS	""	21	Col CS<> Row 20
+98 CT	"Asymptote"	=Cengnotation([@[Asymptote b/d]],3)
+*98 CT	""	21	Col CT<> Row 21
+99 CU	"Limit Cases"	=MAX(tblData[Au LogiP(t)])
+*99 CU	"=MAX(tblData[NSW LogiP(t)])"	12	Col CU<> Row 21
+*99 CU	"=MAX(tblData[Italy LogiP(t)])"	13	Col CU<> Row 12
+*99 CU	"=MAX(tblData[US LogiP(t)])"	14	Col CU<> Row 13
+*99 CU	"=MAX(tblData[China LogiP(t)])"	15	Col CU<> Row 14
+*99 CU	"=MAX(tblData[SKorea LogiP(t)])"	16	Col CU<> Row 15
+*99 CU	"=MAX(tblData[UK LogiP(t)])"	17	Col CU<> Row 16
+*99 CU	"=MAX(tblData[Singapore LogiP(t)])"	18	Col CU<> Row 17
+*99 CU	"=MAX(tblData[Tests])"	19	Col CU<> Row 18
+*99 CU	"=MAX(tblData[Generic LogiP(t)])"	20	Col CU<> Row 19
+*99 CU	""	21	Col CU<> Row 20
+100 CV	"MaxCases"	=MAX(tblData[Au])
+*100 CV	"=MAX(tblData[NSW])"	12	Col CV<> Row 21
+*100 CV	"=MAX(tblData[Italy])"	13	Col CV<> Row 12
+*100 CV	"=MAX(tblData[US])"	14	Col CV<> Row 13
+*100 CV	"=MAX(tblData[China])"	15	Col CV<> Row 14
+*100 CV	"=MAX(tblData[SKorea])"	16	Col CV<> Row 15
+*100 CV	"=MAX(tblData[UK])"	17	Col CV<> Row 16
+*100 CV	"=MAX(tblData[Singapore])"	18	Col CV<> Row 17
+*100 CV	"=MAX(tblData[Tests])"	19	Col CV<> Row 18
+*100 CV	"=MAX(tblData[Generic])"	20	Col CV<> Row 19
+*100 CV	""	21	Col CV<> Row 20
+101 CW	"Asymp PerP"	=Cengnotation(CO11/(AuPop/PerPerson),3)
+*101 CW	"=Cengnotation(CO12/(NSWpop/PerPerson),3)"	12	Col CW<> Row 21
+*101 CW	"=Cengnotation(CO13/(ItalyPop/PerPerson),3)"	13	Col CW<> Row 12
+*101 CW	"=Cengnotation(CO14/(USpop/PerPerson),3)"	14	Col CW<> Row 13
+*101 CW	"=Cengnotation(CO15/(ChinaPop/PerPerson),3)"	15	Col CW<> Row 14
+*101 CW	"=Cengnotation(CO16/(SKoreaPop/PerPerson),3)"	16	Col CW<> Row 15
+*101 CW	"=Cengnotation(CO17/(UKPop/PerPerson),3)"	17	Col CW<> Row 16
+*101 CW	"=Cengnotation([@[Asymptote b/d]]/(SingaporePop/PerPerson),3)"	18	Col CW<> Row 17
+*101 CW	"=Cengnotation([@[Asymptote b/d]]/(TestsPop/PerPerson),3)"	19	Col CW<> Row 18
+*101 CW	"=Cengnotation([@[Asymptote b/d]]/(GenericPop/PerPerson),3)"	20	Col CW<> Row 19
+*101 CW	""	21	Col CW<> Row 20
+102 CX	"Last Date"	=MAX(IF(ISNUMBER(tblData[Au]),tblData[Date]))
+*102 CX	"=MAX(IF(ISNUMBER(tblData[NSW]),tblData[Date]))"	12	Col CX<> Row 21
+*102 CX	"=MAX(IF(ISNUMBER(tblData[Italy]),tblData[Date]))"	13	Col CX<> Row 12
+*102 CX	"=MAX(IF(ISNUMBER(tblData[China]),tblData[Date]))"	15	Col CX<> Row 13
+*102 CX	"=MAX(IF(ISNUMBER(tblData[SKorea]),tblData[Date]))"	16	Col CX<> Row 15
+*102 CX	"=MAX(IF(ISNUMBER(tblData[UK]),tblData[Date]))"	17	Col CX<> Row 16
+*102 CX	"=MAX(IF(ISNUMBER(tblData[Singapore]),tblData[Date]))"	18	Col CX<> Row 17
+*102 CX	"=MAX(IF(ISNUMBER(tblData[Tests]),tblData[Date]))"	19	Col CX<> Row 18
+*102 CX	"=MAX(IF(ISNUMBER(tblData[Generic]),tblData[Date]))"	20	Col CX<> Row 19
+*102 CX	"=MIN([Last Date])"	21	Col CX<> Row 20
+103 CY	"Points"	=COUNT(IF(ISNUMBER(tblData[Au]),tblData[Date]))
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[NSW]),tblData[Date]))"	12	Col CY<> Row 21
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[Italy]),tblData[Date]))"	13	Col CY<> Row 12
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[US]),tblData[Date]))"	14	Col CY<> Row 13
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[China]),tblData[Date]))"	15	Col CY<> Row 14
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[SKorea]),tblData[Date]))"	16	Col CY<> Row 15
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[UK]),tblData[Date]))"	17	Col CY<> Row 16
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[Singapore]),tblData[Date]))"	18	Col CY<> Row 17
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[Tests]),tblData[Date]))"	19	Col CY<> Row 18
+*103 CY	"=COUNT(IF(ISNUMBER(tblData[Generic]),tblData[Date]))"	20	Col CY<> Row 19
+*103 CY	""	21	Col CY<> Row 20
+104 CZ	"Parameter List"	="b="&TEXT(CL11,"##0.###")&", d="&TEXT(CM11,"0.00E+00")&", P0="&TEXT(CN11,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT11,CW11)&"=>"&Cengnotation(CU11,3)&" cases "&DC11
+*104 CZ	"="b="&TEXT(CL12,"##0.###")&", d="&TEXT(CM12,"0.00E+00")&", P0="&TEXT(CN12,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT12,CW12)&"=>"&Cengnotation(CU12,3)&" cases "&DC12"	12	Col CZ<> Row 21
+*104 CZ	"="b="&TEXT(CL13,"##0.###")&", d="&TEXT(CM13,"0.00E+00")&", P0="&TEXT(CN13,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT13,CW13)&"=>"&Cengnotation(CU13,3)&" cases "&DC13"	13	Col CZ<> Row 12
+*104 CZ	"="b="&TEXT(CL14,"##0.###")&", d="&TEXT(CM14,"0.00E+00")&", P0="&TEXT(CN14,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT14,CW14)&"=>"&Cengnotation(CU14,3)&" cases "&DC14"	14	Col CZ<> Row 13
+*104 CZ	"="b="&TEXT(CL15,"##0.###")&", d="&TEXT(CM15,"0.00E+00")&", P0="&TEXT(CN15,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT15,CW15)&"=>"&Cengnotation(CU15,3)&" cases "&DC15"	15	Col CZ<> Row 14
+*104 CZ	"="b="&TEXT(CL16,"##0.###")&", d="&TEXT(CM16,"0.00E+00")&", P0="&TEXT(CN16,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT16,CW16)&"=>"&Cengnotation(CU16,3)&" cases "&DC16"	16	Col CZ<> Row 15
+*104 CZ	"="b="&TEXT(CL17,"##0.###")&", d="&TEXT(CM17,"0.00E+00")&", P0="&TEXT(CN17,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT17,CW17)&"=>"&Cengnotation(CU17,3)&" cases "&DC17"	17	Col CZ<> Row 16
+*104 CZ	"="b="&TEXT(CL18,"##0.###")&", d="&TEXT(CM18,"0.00E+00")&", P0="&TEXT(CN18,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT18,CW18)&"=>"&Cengnotation(CU18,3)&" cases "&DC18"	18	Col CZ<> Row 17
+*104 CZ	"="b="&TEXT(CL19,"##0.###")&", d="&TEXT(CM19,"0.00E+00")&", P0="&TEXT(CN19,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT19,CW19)&"=>"&Cengnotation(CU19,3)&" cases "&DC19"	19	Col CZ<> Row 18
+*104 CZ	"="b="&TEXT(CL20,"##0.###")&", d="&TEXT(CM20,"0.00E+00")&", P0="&TEXT(CN20,"#.###")& ", mse=" &TEXT([@[Mean Sq Err]],"########.#") &", Limit="&IF(PopScaling=0,CT20,CW20)&"=>"&Cengnotation(CU20,3)&" cases "&DC20"	20	Col CZ<> Row 19
+*104 CZ	""	21	Col CZ<> Row 20
+106 DB	"SeriesLabel"	=CG11&" Limit " & IF(PopScaling=0,CT11,CW11)
+*106 DB	"=CG12&" Limit " & IF(PopScaling=0,CT12,CW12)"	12	Col DB<> Row 21
+*106 DB	"=CG13&" Limit " & IF(PopScaling=0,CT13,CW13)"	13	Col DB<> Row 12
+*106 DB	"=CG14&" Limit " & IF(PopScaling=0,CT14,CW14)"	14	Col DB<> Row 13
+*106 DB	"=CG15&" Limit " & IF(PopScaling=0,CT15,CW15)"	15	Col DB<> Row 14
+*106 DB	"=CG16&" Limit " & IF(PopScaling=0,CT16,CW16)"	16	Col DB<> Row 15
+*106 DB	"=CG17&" Limit " & IF(PopScaling=0,CT17,CW17)"	17	Col DB<> Row 16
+*106 DB	"=CG18&" Limit " & IF(PopScaling=0,CT18,CW18)"	18	Col DB<> Row 17
+*106 DB	"=CG19&" Limit " & IF(PopScaling=0,CT19,CW19)"	19	Col DB<> Row 18
+*106 DB	"=GenName&" Limit " & IF(PopScaling=0,CT20,CW20)"	20	Col DB<> Row 19
+*106 DB	""	21	Col DB<> Row 20
+108 DD	"ChartLabel"	="COVID19 "&CG11 & " " &LogFormula&CHAR(10)&CZ11&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)
+*108 DD	"="COVID19 "&CG12 & " " &LogFormula&CHAR(10)&CZ12&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	12	Col DD<> Row 21
+*108 DD	"="COVID19 "&CG13 & " " &LogFormula&CHAR(10)&CZ13&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	13	Col DD<> Row 12
+*108 DD	"="COVID19 "&CG14 & " " &LogFormula&CHAR(10)&CZ14&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	14	Col DD<> Row 13
+*108 DD	"="COVID19 "&CG15 & " " &LogFormula&CHAR(10)&CZ15&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	15	Col DD<> Row 14
+*108 DD	"="COVID19 "&CG16 & " " &LogFormula&CHAR(10)&CZ16&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	16	Col DD<> Row 15
+*108 DD	"="COVID19 "&CG17 & " " &LogFormula&CHAR(10)&CZ17&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	17	Col DD<> Row 16
+*108 DD	"="COVID19 "&CG18 & " " &LogFormula&CHAR(10)&CZ18&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	18	Col DD<> Row 17
+*108 DD	"="COVID19  NSW Tests" &LogFormula&CHAR(10)&CZ19&CHAR(10)&" (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")""	19	Col DD<> Row 18
+*108 DD	"="COVID19 "&GenCountry&" "&GenState & " " &LogFormula&CHAR(10)&CZ20&CHAR(10)&"  (Fit: " & TEXT([Logistic Start2],"ddd dd-mmm") & " - " & TEXT([Last Date],"ddd dd-mmm")&")"&IF(PopScaling=0,"",", "&PerPersonLabel)"	20	Col DD<> Row 19
+*108 DD	""	21	Col DD<> Row 20
+109 DE	"Max Cases Per Capita"	=MAX(tblData[Au Cases Per Capita])
+*109 DE	"=MAX(tblData[NSW Cases per Capita])"	12	Col DE<> Row 21
+*109 DE	"=MAX(tblData[Italy Cases per Capita])"	13	Col DE<> Row 12
+*109 DE	"=MAX(tblData[US Cases Per Capita])"	14	Col DE<> Row 13
+*109 DE	"=MAX(tblData[China Cases Per Capita])"	15	Col DE<> Row 14
+*109 DE	"=MAX(tblData[SKorea Cases Per Capita])"	16	Col DE<> Row 15
+*109 DE	"=MAX(tblData[UK Cases Per Capita])"	17	Col DE<> Row 16
+*109 DE	"=MAX(tblData[Singapore Cases Per Capita])"	18	Col DE<> Row 17
+*109 DE	"=MAX(tblData[Tests])"	19	Col DE<> Row 18
+*109 DE	"=MAX(tblData[Generic Cases Per Capita])"	20	Col DE<> Row 19
+*109 DE	""	21	Col DE<> Row 20
+114 DJ	"SummaryWords"	="At " & TEXT([@[Last Date]],"ddd dd-mmm ") & [@Place] &  TEXT(AuMaxCasespc," ###0") & " cases per 10M was " & DI13  & " days behind Italy, " & IF(DI14>0, DI14 & " days behind", -DI14 & " days ahead of ") & " USA, "&  IF(ISERROR(DI15),",",DI15 & "days behind China, ") & DI16 & " days behind South Korea, " & DI17 & " days behind UK"
+*114 DJ	"="At " & TEXT([@[Last Date]],"ddd dd-mmm " ) &  CG12  &  TEXT(NSWMaxCasespc," ###0") & " cases per 10M was " & DG13 & " days behind Italy, " & IF(DG14>0, DG14 & " days behind", -DG14 & " days ahead of") & " USA & " &  DG15 & " days behind China, " & DG16 & " days behind South Korea, " & DG17 & " days behind UK""	12	Col DJ<> Row 21
+*114 DJ	""	13	Col DJ<> Row 12
+*114 DJ	"=DJ11&CHAR(10)&DJ12"	14	Col DJ<> Row 13
+*114 DJ	""	15	Col DJ<> Row 14
+115 DK	"GrowthInNextWeek"	=INDEX(tblData[Au LogiP(t)],MATCH(VALUE([AtDate])+7,tblData[Date],1))
+*115 DK	"=INDEX(tblData[NSW LogiP(t)],MATCH(VALUE([AtDate])+7,tblData[Date],1))"	12	Col DK<> Row 15
+*115 DK	"=INDEX(tblData[Italy LogiP(t)],MATCH(VALUE([AtDate])+7,tblData[Date],1))"	13	Col DK<> Row 12
+*115 DK	"=INDEX(tblData[US LogiP(t)],MATCH(VALUE([AtDate])+7,tblData[Date],1))"	14	Col DK<> Row 13
+*115 DK	"=INDEX(tblData[NSW LogiP(t)],MATCH(VALUE([AtDate])+7,tblData[Date],1))"	15	Col DK<> Row 14
+*115 DK	""	21	Col DK<> Row 15
+116 DL	"MSQ per MaxCasesPerCapita"	=[Mean Sq Err]/[Max Cases Per Capita]
+*116 DL	""	21	Col DL<> Row 21
+117 DM	"DateOver100"	=IF(MIN(tblData[Au Cases Per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[Au Cases Per Capita],1)))
+*117 DM	"=IF(MIN(tblData[NSW Cases per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[NSW Cases per Capita],1)))"	12	Col DM<> Row 21
+*117 DM	"=IF(MIN(tblData[Italy Cases per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[Italy Cases per Capita],1)))"	13	Col DM<> Row 12
+*117 DM	"=IF(MIN(tblData[US Cases Per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[US Cases Per Capita],1)))"	14	Col DM<> Row 13
+*117 DM	"=IF(MIN(tblData[China Cases Per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[China Cases Per Capita],1)))"	15	Col DM<> Row 14
+*117 DM	"=IF(MIN(tblData[SKorea Cases Per Capita])>solvMsgs!MinCases,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[SKorea Cases Per Capita],1)))"	16	Col DM<> Row 15
+*117 DM	"=IF(MIN(tblData[UK Cases Per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[UK Cases Per Capita],1)))"	17	Col DM<> Row 16
+*117 DM	"=IF(MIN(tblData[Singapore Cases Per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[Singapore Cases Per Capita],1)))"	18	Col DM<> Row 17
+*117 DM	"=IF(MIN(tblData[Tests])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[Tests],1)))"	19	Col DM<> Row 18
+*117 DM	"=IF(MIN(tblData[Generic Cases Per Capita])>0,MIN(tblData[Date]),INDEX(tblData[Date],1+MATCH(solvMsgs!MinCases, tblData[Generic Cases Per Capita],1)))"	20	Col DM<> Row 19
+*117 DM	""	21	Col DM<> Row 20
+118 DN	"Cases Label"	=[@Place]&" from "&TEXT([DateOver100],"dd-mmm")
+*118 DN	"=GenName&" from "&TEXT(Au100dt,"dd-mmm")"	20	Col DN<> Row 21
+*118 DN	""	21	Col DN<> Row 20
