@@ -22,3 +22,18 @@ FD92F310
 20200326_BootCamp.jpg
 20200326_chtFutureItalyEarly0228.jpg
 tests-vs-confirmed-cases-covid-19.csv
+*.Txt
+*.jpg
+*.csv
+*Twitter.htm
+covid*logistic?.xlsm
+covid*logistic??.xlsm
+*.bas
+*.cls
+Copy of covid19Logistic5a.xlsm
+covid*logistic???.xlsm
+*.aspx
+*.htm
+
+covid19Logistic.oldxlsm
+covid19Logistic6old.xlsm
