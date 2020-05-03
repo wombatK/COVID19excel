@@ -230,7 +230,7 @@ README COVID19excel
      each time it is run, new country (or state) columns can be added, all can be rebuilt,
      or you can just have the latest data pasted into the TST or DeathsTimeS worksheets.
     
-	AddSeriesToCht1 Macro
+	AddSeriesToCht1 Sub
     
      This allows user to select a chart (located on a sheet, not tested for embedded chart)
      then copy the SERIES function for a particular country or state to 
@@ -244,4 +244,19 @@ README COVID19excel
 	 The required dynamic names are established by the TtranspSeries macro (for 
 	 TSTS and DeathsTimeS) or the AddCountry macro for tblData in myData worksheet.
 	 
-	 
+    UpdateSeriesLabels Sub
+	
+    Scans for worksheet charts, starting from leftmost one (ie. chart sheet
+	index order), prompting user to process that chart or not, or to 
+	abort (cancel) the processing.
+	
+	For each selected chart, the xy series functions are stepped through to
+	find any labelled points. Only 1 is expected, giving typically the 
+	RH point on the series when last processed by this (or otherwise
+	with XY Chart Labeller).
+	
+    Where a label is found, it is copied to the next to last RH point,
+	where not found, a point label is constructed from the series function
+	given label. The series label is parsed to remove any "from..."
+	 suffix (which is used in this workbook to specify dates from which
+	 a country had over 100 cases or 10 deaths per 10m pop)
